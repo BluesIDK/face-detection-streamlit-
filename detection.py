@@ -5,6 +5,8 @@ from PIL import Image
 
 # Load Haar cascade file
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+if face_cascade.empty():
+    raise IOError('Failed to load face cascade classifier!')
 
 st.title("🔍 Viola-Jones Face Detection App")
 st.markdown("""
